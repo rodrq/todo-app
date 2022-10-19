@@ -1,8 +1,16 @@
 {% extends 'todo/main.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <div class="welcome">Welcome, {{user}}</div>
 
+{% else %}
+
+<div class="welcome">
+  <p>Welcome. To use the app you need to <a href="{% url 'loginPage' %}">log in</a></p>
+</div>
+
+{% endif %}
 
 
 
