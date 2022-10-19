@@ -1,0 +1,28 @@
+{% extends 'todo/main.html' %}
+
+{% block content %} 
+
+{% if not user.is_authenticated %}
+<form method="POST" class="register--form">
+  {% csrf_token %}
+    
+  <label for="id_email">Username</label>
+  {{form.username}}
+
+  <label for="id_password1">Password</label>
+  {{form.password1}}
+
+  <label for="id_password2">Password again</label>
+  {{form.password2}}
+  <br>  
+
+
+  <input type="submit" name="Create">
+</form>
+
+{% else %}
+
+<h1> Ya estás logeado </h1>
+
+{% endif %}
+{% endblock %}

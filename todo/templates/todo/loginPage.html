@@ -1,0 +1,23 @@
+{% extends 'todo/main.html' %}
+{% block content %}
+<h2>Log In</h2>
+{% if not user.is_authenticated %}
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="username" placeholder="Username">
+  <br>
+  <input type="password" name="password" placeholder="Password">
+  <br>
+  <button type="submit">Log In</button>
+</form>
+<br>
+<h3> Si no tenés una cuenta, <a href="{% url "registerPage" %}">click aquí para registrarse</a></h3>
+
+{% elif user.is_authenticated %}
+<h1>Already logged in</h1>
+
+{% endif %}
+
+<br>
+
+{% endblock content %}

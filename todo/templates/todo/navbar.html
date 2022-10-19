@@ -1,8 +1,18 @@
 <nav class="navbar">
   <div class="logo">
-    <h1 class="p1">TODO.app</h1> 
+    TODO.app 
   </div>
-  <button class="login">
-    Log in
-  </button>
+  {% if not user.is_authenticated %}
+  <a href="{% url 'loginPage' %}">
+    <button class="login">
+      Log in
+    </button>
+  </a>
+  {% else %}
+  <a href="{% url 'logout' %}">
+    <button class="login">
+      Log out
+    </button>
+  </a>
+  {% endif %}
 </nav>
